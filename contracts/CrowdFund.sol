@@ -33,7 +33,6 @@ contract CrowdFund is Ownable, ReentrancyGuard {
         uint256 amountRaised;
     }
 
-    address public immutable OWNER;
     mapping(uint256 => Campaign) public campaigns;
 
     ///@dev keep track of number of campaigns
