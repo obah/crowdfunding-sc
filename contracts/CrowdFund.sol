@@ -38,7 +38,7 @@ contract CrowdFund is Ownable, ReentrancyGuard {
     ///@dev keep track of number of campaigns
     uint256 public numOfCampaigns;
 
-    constructor(address initialOwner) Ownable(initialOwner) {}
+    constructor() Ownable(msg.sender) {}
 
     receive() external payable {}
 
