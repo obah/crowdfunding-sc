@@ -1,8 +1,13 @@
-# Sample Hardhat Project
+# Week 3 Assessment 2 - Crowdfunding smart contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+This project was created using hardhat.
 
-Try running some of the following tasks:
+Ownable and ReentracyGuard contracts were imported from openzeppelin.
+
+Functions - createCampaign() - creates a campaigns
+donateToCampaign() - for donations
+endCampaign() - to automatically end campaigns and transfer amount raised to benefactor wallet
+withdrawRefunds() - a refund mechanism for contract owner to withdraw excess funds and refunds
 
 ```shell
 npx hardhat help

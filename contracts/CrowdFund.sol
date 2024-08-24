@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 contract CrowdFund is Ownable, ReentrancyGuard {
     event CampaignCreated(
@@ -43,8 +43,8 @@ contract CrowdFund is Ownable, ReentrancyGuard {
 
     receive() external payable {}
 
-    ///@dev createCampaign() allows a user to create campaign
-    ///@params all params needed to create a campaigns
+    //@dev createCampaign() allows a user to create campaign
+    //@params all params needed to create a campaigns
     function createCampaign(
         string calldata _title,
         string calldata _description,
@@ -76,8 +76,8 @@ contract CrowdFund is Ownable, ReentrancyGuard {
         );
     }
 
-    ///@dev donateToCampaign() allows a user to donate to a campaign
-    ///@params - campaignId of the campaign receiving donation
+    //@dev donateToCampaign() allows a user to donate to a campaign
+    //@params - campaignId of the campaign receiving donation
     function donateToCampaign(
         uint256 campaignId
     ) external payable nonReentrant {
@@ -93,8 +93,8 @@ contract CrowdFund is Ownable, ReentrancyGuard {
         emit DonationReceived(msg.value, campaignId, block.timestamp);
     }
 
-    ///@dev endCampaign() ends a campaign
-    ///@params - campaignId of the campaign to end
+    //@dev endCampaign() ends a campaign
+    //@params - campaignId of the campaign to end
     function endCampaign(uint256 campaignId) internal nonReentrant {
         Campaign storage campaign = campaigns[campaignId];
 
@@ -118,6 +118,8 @@ contract CrowdFund is Ownable, ReentrancyGuard {
 
         emit CampaignEnded(block.timestamp, goalReached, campaignId);
     }
+
+    ///
 
     ///@dev checkCampaigns() automatically tries to end all campaigns by calling endCampaign()
     function checkCampaigns() public nonReentrant {
