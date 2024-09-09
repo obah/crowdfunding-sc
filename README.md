@@ -1,4 +1,4 @@
-# Week 3 Assessment 2 - Crowdfunding smart contract
+# Crowdfunding smart contract
 
 This project was created using hardhat.
 
